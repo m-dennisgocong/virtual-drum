@@ -3,7 +3,8 @@ import './App.scss';
 const App = () => {
 
   return(
-    <h1>My Boiler-plate</h1>
+    <main id="drum-machine" className="drum-container">
+    </main>
   );
 }
 
