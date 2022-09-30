@@ -1,7 +1,8 @@
 #root{
-
-  h1 {
-    color: red;
-  }
-
+  height: 430px;
+  margin: 2em 0;
+  max-width: 1280px;
+  width: 380px;
+  display: grid;
+  place-items: center;
 }
