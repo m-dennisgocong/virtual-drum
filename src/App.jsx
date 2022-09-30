@@ -5,13 +5,13 @@ import ControlContainer from './components/ControlContainer';
 import {bankOne} from './data/bankOne.js';
 
 const App = () => {
-  
+
   const [currentBank, setCurrentBank] = useState(bankOne);
 
   return(
     <main id="drum-machine" className="drum-container">
       <p id="display"></p>
-      <DrumPads />
+      <DrumPads currentBank={currentBank}/>
       <ControlContainer />
     </main>
   );
