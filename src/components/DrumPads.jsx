@@ -1,15 +1,18 @@
 import './DrumPads.scss';
 import { useEffect } from 'react';
-const DrumPads = ({currentBank}) => {
+const DrumPads = ({currentBank, displayAudioName}) => {
 
     const playSound = (event) => {
         const sound = event.target.firstChild;// get the first child which is the audio element
         sound.currentTime = 0;
-        sound.play();       
+        sound.play();
+        displayAudioName(event.target.id);       
     }
 
     const handleKeyDown = (event) => {
+           
         const sound = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+        displayAudioName(sound.parentNode.id)
         sound.currentTime = 0;
         sound.play();  
     }

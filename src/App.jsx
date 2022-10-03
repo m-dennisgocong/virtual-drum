@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.scss';
 import DrumPads from './components/DrumPads';
 import ControlContainer from './components/ControlContainer';
@@ -8,10 +8,16 @@ const App = () => {
 
   const [currentBank, setCurrentBank] = useState(bankOne);
 
+  const [audioName, setAudioName] = useState("")
+
+  const displayAudioName = (name) => {
+    setAudioName(name);
+  }
+  
   return(
     <main id="drum-machine" className="drum-container">
-      <p id="display"></p>
-      <DrumPads currentBank={currentBank}/>
+      <p id="display">{audioName}</p>
+      <DrumPads currentBank={currentBank} displayAudioName={displayAudioName}/>
       <ControlContainer />
     </main>
   );
