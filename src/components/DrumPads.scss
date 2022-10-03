@@ -5,6 +5,7 @@ ul{
     gap: 1em;
     li{
         cursor: pointer;
+        user-select: none;
         padding: 0.5em;
         background-color: red;
     }
