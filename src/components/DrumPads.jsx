@@ -1,7 +1,17 @@
 import './DrumPads.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 const DrumPads = ({currentBank, displayAudioName}) => {
 
+    const activateStyle = {
+        backgroundColor: 'orange',
+        boxShadow: '1px 1px 3px orange',
+        padding: 11,
+    };
+    const inActivateStyle = {
+        backgroundColor: 'grey',
+        padding: 10,
+        boxShadow: '3px 3px 3px black',
+    };
 
     const playSound = (sound, soundName) => {
 
@@ -9,12 +19,13 @@ const DrumPads = ({currentBank, displayAudioName}) => {
         sound.play(); 
         
         displayAudioName(soundName); // display the sound audio name when trigger
-
+        
+        padActivated();
+        setTimeout(() => setPadStyle(inActivateStyle), 100);
     }
 
     const handleClick = (event) => {
         
-        console.log(currentBank)
         const sound = event.target.firstChild; // get the first child which is the audio element
         const soundName = event.target.id; // audio name 
 
@@ -28,7 +39,14 @@ const DrumPads = ({currentBank, displayAudioName}) => {
         
         playSound(sound, soundName); // play sound
     }
+
+    const padActivated = () =>  {
+        // console.log(activateStyle);
+        setPadStyle(activateStyle);
+    }
     
+    const [padStyle, setPadStyle] = useState(inActivateStyle);
+
     useEffect(()=> {
         document.addEventListener('keydown', handleKeyDown);
         return() => {
@@ -37,7 +55,7 @@ const DrumPads = ({currentBank, displayAudioName}) => {
     });
 
     const drumPads = currentBank.map(element => 
-        <li key={element.keyTrigger} id={element.id} className="drum-pad" onClick={handleClick}><audio data-key={element.keyCode} id={element.keyTrigger} className="clip" src={element.url} />{element.keyTrigger}</li>
+        <li key={element.keyTrigger} id={element.id} className="drum-pad" onClick={handleClick} style={padStyle}><audio data-key={element.keyCode} id={element.keyTrigger} className="clip" src={element.url} />{element.keyTrigger}</li>
     );
         
     return(
