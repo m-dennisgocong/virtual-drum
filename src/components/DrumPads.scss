@@ -1,12 +1,16 @@
-ul{
-    list-style-type: none;
-    
+.pad-bank{   
+
     display: flex;
-    gap: 1em;
-    li{
+    align-items: center;
+    gap: 1rem;
+    margin: auto;
+
+    .drum-pad{
+
         cursor: pointer;
         user-select: none;
         padding: 0.5em;
-        background-color: red;
+
     }
+    
 }
