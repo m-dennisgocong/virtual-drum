@@ -1,49 +1,51 @@
-import './DrumPads.scss';
 import { useEffect, useState } from 'react';
-const DrumPads = ({currentBank, displayAudioName}) => {
+
+const DrumPads = ({keyCode,keyTrigger,id,audioUrl, displayAudioName}) => {
 
     const activateStyle = {
         backgroundColor: 'orange',
-        boxShadow: '1px 1px 3px orange',
-        padding: 11,
+        boxShadow: '0 3px orange',
+        height: '77',
+        marginTop: 13,
     };
     const inActivateStyle = {
         backgroundColor: 'grey',
-        padding: 10,
+        marginTop: 10,
         boxShadow: '3px 3px 3px black',
     };
 
-    const playSound = (sound, soundName) => {
+    // play the audio
+    const playSound = () => {
 
+        const sound = document.getElementById(keyTrigger);
         sound.currentTime = 0;
-        sound.play(); 
-        
-        displayAudioName(soundName); // display the sound audio name when trigger
-        
-        padActivated();
+        sound.play();
+
+        // display the name of triggered drum pad
+        displayAudioName(id); 
+
+        // change style of triggered drum pad    
+        setPadStyle(activateStyle)
         setTimeout(() => setPadStyle(inActivateStyle), 100);
+
     }
 
-    const handleClick = (event) => {
-        
-        const sound = event.target.firstChild; // get the first child which is the audio element
-        const soundName = event.target.id; // audio name 
+    // onclick
+    const handleClick = () => {
 
-        playSound(sound, soundName); // play the audio
+        playSound();
+
     }
 
+    // keydown
     const handleKeyDown = (event) => {
-           
-        const sound = document.querySelector(`audio[data-key="${event.keyCode}"]`);
-        const soundName = sound.parentNode.id;
-        
-        playSound(sound, soundName); // play sound
+
+        if(event.keyCode === keyCode){
+            playSound();
+        }
+
     }
 
-    const padActivated = () =>  {
-        // console.log(activateStyle);
-        setPadStyle(activateStyle);
-    }
     
     const [padStyle, setPadStyle] = useState(inActivateStyle);
 
@@ -53,17 +55,11 @@ const DrumPads = ({currentBank, displayAudioName}) => {
             document.removeEventListener('keydown', handleKeyDown);
         };
     });
-
-    const drumPads = currentBank.map(element => 
-        <li key={element.keyTrigger} id={element.id} className="drum-pad" onClick={handleClick} style={padStyle}><audio data-key={element.keyCode} id={element.keyTrigger} className="clip" src={element.url} />{element.keyTrigger}</li>
-    );
         
     return(
-        <section className="drum-map">
-            <ul>
-                {drumPads}
-            </ul>
-        </section>
+        <div className="drum-pad" id={id} onClick={handleClick} style={padStyle}>
+            <audio className="clip" id={keyTrigger} src={audioUrl}></audio>{keyTrigger}
+        </div>
     );
 }
 
