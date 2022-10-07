@@ -1,5 +1,5 @@
 import DrumPads from "./DrumPads";
-import './DrumPad.scss'
+import './DrumPads.scss'
 
 const BankPad = ({currentBank, displayAudioName}) => {
     
