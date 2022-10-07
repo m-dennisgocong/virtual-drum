@@ -1,8 +1,24 @@
+$main-bg-color: rgb(255, 255, 255);
+$drum-machine-bg-color: rgb(192, 192, 192);
+
 #root{
-  height: 430px;
-  margin: 2em 0;
+  height: 100vh;
+  margin: 0 auto;
   max-width: 1280px;
-  width: 380px;
+  min-width: 380px;
+  width: 100%;
   display: grid;
   place-items: center;
+  background-color: $main-bg-color;
+}
+#drum-machine{
+  height: 80vh;
+  width: 90vw;
+  display: grid;
+  place-items: center;
+  background-color: $drum-machine-bg-color;
+  #display{
+    height: 1rem;
+    width: auto;
+  }
 }
