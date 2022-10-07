@@ -1,16 +1,24 @@
+$padWidth: 90px;
+$padHeight: 70px;
+
 .pad-bank{   
 
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: auto;
-
+    display: grid;
+    place-items: center;
+    gap: .8rem;
+    grid-template-columns: repeat(3, 1fr);
+    width: $padWidth * 3 + 32;
+    height: $padHeight * 3 + 32;
+    margin: 20px;
+    
     .drum-pad{
-
+        position: relative;
         cursor: pointer;
         user-select: none;
+        width: $padWidth;
+        height: $padHeight;
         padding: 0.5em;
-
+        border-radius: 0.2em;
     }
     
 }
