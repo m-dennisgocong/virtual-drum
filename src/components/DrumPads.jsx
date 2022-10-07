@@ -5,13 +5,11 @@ const DrumPads = ({keyCode,keyTrigger,id,audioUrl, displayAudioName}) => {
     const activateStyle = {
         backgroundColor: 'orange',
         boxShadow: '0 3px orange',
-        height: '77',
-        marginTop: 13,
+        height: 77.5,
     };
     const inActivateStyle = {
         backgroundColor: 'grey',
-        marginTop: 10,
-        boxShadow: '3px 3px 3px black',
+        boxShadow: '3px 3px 8px black',
     };
 
     // play the audio
