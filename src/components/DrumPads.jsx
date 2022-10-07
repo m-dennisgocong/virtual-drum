@@ -5,7 +5,8 @@ const DrumPads = ({keyCode,keyTrigger,id,audioUrl, displayAudioName}) => {
     const activateStyle = {
         backgroundColor: 'orange',
         boxShadow: '0 3px orange',
-        height: 77.5,
+        height: 67.5,
+        top: 2
     };
     const inActivateStyle = {
         backgroundColor: 'grey',
