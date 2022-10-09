@@ -3,14 +3,15 @@ import { useEffect, useState } from 'react';
 const DrumPads = ({keyCode,keyTrigger,id,audioUrl, displayAudioName}) => {
 
     const activateStyle = {
-        backgroundColor: 'orange',
-        boxShadow: '0 3px orange',
+        backgroundColor: '#333',
+        boxShadow: 'inset 0 0 2em rgb(0, 0, 255, 0.5),inset 0 0 4em #fff, 0 0 2em rgb(0, 0, 255, 0.5), 2px 2px 1em #fff',
         height: 67.5,
-        top: 2
+        top: 3.5
     };
     const inActivateStyle = {
-        backgroundColor: 'grey',
-        boxShadow: '3px 3px 8px black',
+        backgroundColor: '#333',
+        boxShadow: '3px 3px 3px 1px rgb(0, 0, 255, 0.5)',
+        color: "white"
     };
 
     // play the audio
