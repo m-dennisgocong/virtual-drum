@@ -1,5 +1,5 @@
 $main-bg-color: rgb(255, 255, 255);
-$drum-machine-bg-color: rgb(192, 192, 192);
+$drum-machine-bg-color: rgb(68, 68, 68);
 
 #root{
   height: 100vh;
@@ -12,11 +12,12 @@ $drum-machine-bg-color: rgb(192, 192, 192);
   background-color: $main-bg-color;
 }
 #drum-machine{
-  height: 80vh;
+  height: 90vh;
   width: 90vw;
   display: grid;
   place-items: center;
   background-color: $drum-machine-bg-color;
+  border-radius: 0.5em;
   #display{
     height: 1rem;
     width: auto;
