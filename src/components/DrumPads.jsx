@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const DrumPads = ({keyCode,keyTrigger,id,audioUrl, displayAudioName}) => {
+const DrumPads = ({keyCode,keyTrigger,id,audioUrl, display}) => {
 
     const activateStyle = {
         backgroundColor: '#333',
@@ -22,7 +22,7 @@ const DrumPads = ({keyCode,keyTrigger,id,audioUrl, displayAudioName}) => {
         sound.play();
 
         // display the name of triggered drum pad
-        displayAudioName(id); 
+        display(id); 
 
         // change style of triggered drum pad    
         setPadStyle(activateStyle)
