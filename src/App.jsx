@@ -9,12 +9,28 @@ const App = () => {
 
   const [currentBank, setCurrentBank] = useState(bankOne);
   const [displayString, setdisplayString] = useState(" ")
-  const [volumeValue, setVolumeValue] = useState(5);
+  const [volumeValue, setVolumeValue] = useState(0.5);
 
+  const clearDisplay = () => {
+    setdisplayString(" ");
+  }
+  
   const display = (name) => {
     setdisplayString(name);
   }
+
+  const adjustVolume = (event) => {
+    setVolumeValue(event.target.value);
+    display("volume : "+ Math.round(event.target.value * 100));
+    setTimeout(() => clearDisplay(), 1000); 
+  }
   
+  
+  const clips = document.querySelectorAll('.clip');    
+  clips.forEach(sound => {
+    sound.volume = volumeValue;
+  });
+
   return(
     <main id="drum-machine" className="drum-container">
       <div className="display-container">
@@ -22,7 +38,10 @@ const App = () => {
       </div>
       <BankPad currentBank={currentBank} display={display}/>
       {/* <ControlContainer /> */}
-      <input type="range" name="volume" min={0} max={10} value={volumeValue} onChange={(event)=> setVolumeValue(event.target.value)}/>
+      <div className="volume-container">
+        <p>volume: </p>
+        <input type="range" name="volume" min="0" max="1" step="0.01" value={volumeValue} onChange={adjustVolume}/>
+      </div>
       <div className="switch">
       </div>
     </main>
