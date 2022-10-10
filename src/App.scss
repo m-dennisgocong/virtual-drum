@@ -1,4 +1,4 @@
-$main-bg-color: rgb(255, 255, 255);
+$main-bg-color: rgb(40, 40, 40);
 $drum-machine-bg-color: rgb(68, 68, 68);
 
 #root{
@@ -9,17 +9,29 @@ $drum-machine-bg-color: rgb(68, 68, 68);
   width: 100%;
   display: grid;
   place-items: center;
+  gap: 1em;
   background-color: $main-bg-color;
 }
 #drum-machine{
   height: 90vh;
   width: 90vw;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   place-items: center;
+  justify-content: center;
+  gap: 2em;
   background-color: $drum-machine-bg-color;
   border-radius: 0.5em;
-  #display{
-    height: 1rem;
-    width: auto;
+  border: 0.1px solid white;
+  .display-container{
+    
+    height: 30px;
+    width: 250px;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    text-align: center;
+    background-color: #333;
+    // border: 1px solid white;
+    color: white;
   }
 }
