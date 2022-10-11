@@ -10,7 +10,7 @@ const DrumPads = ({keyCode,keyTrigger,id,audioUrl, display}) => {
     };
     const inActivateStyle = {
         backgroundColor: '#333',
-        boxShadow: '3px 3px 3px 1px rgb(0, 0, 255, 0.5)',
+        boxShadow: '1px 1px 4px 1px rgb(255, 255, 255,0.5),3.5px 3.5px 4px 1px rgb(0, 0, 255, 0.5)',
         color: "white"
     };
 
