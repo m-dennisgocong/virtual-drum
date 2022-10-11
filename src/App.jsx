@@ -10,6 +10,7 @@ const App = () => {
   const [currentBank, setCurrentBank] = useState(bankOne);
   const [displayString, setdisplayString] = useState(" ")
   const [volumeValue, setVolumeValue] = useState(0.5);
+  const [power, setPower] = useState(true);
 
   const clearDisplay = () => {
     setdisplayString(" ");
@@ -25,7 +26,11 @@ const App = () => {
     setTimeout(() => clearDisplay(), 1000); 
   }
   
+  const handlePower = () => {
+    setPower(!power);
+  }
   
+  // adjust audio volume
   const clips = document.querySelectorAll('.clip');    
   clips.forEach(sound => {
     sound.volume = volumeValue;
@@ -36,13 +41,15 @@ const App = () => {
       <div className="display-container">
         <p id="display">{displayString}</p>
       </div>
-      <BankPad currentBank={currentBank} display={display}/>
+      <BankPad currentBank={currentBank} display={display} power={power}/>
       {/* <ControlContainer /> */}
       <div className="volume-container">
         <p>volume: </p>
         <input type="range" name="volume" min="0" max="1" step="0.01" value={volumeValue} onChange={adjustVolume}/>
       </div>
-      <div className="switch">
+      <div className="power-container">
+        <input checked={power} type="checkbox" id="power" className='toggle' onChange={handlePower}/>
+        <label htmlFor="power">Power</label>
       </div>
     </main>
   );

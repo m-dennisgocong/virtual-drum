@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const DrumPads = ({keyCode,keyTrigger,id,audioUrl, display}) => {
+const DrumPads = ({keyCode,keyTrigger,id,audioUrl, display, power}) => {
 
     const activateStyle = {
         backgroundColor: '#333',
@@ -13,21 +13,29 @@ const DrumPads = ({keyCode,keyTrigger,id,audioUrl, display}) => {
         boxShadow: '1px 1px 4px 1px rgb(255, 255, 255,0.5),3.5px 3.5px 4px 1px rgb(0, 0, 255, 0.5)',
         color: "white"
     };
+    const powerOffstyle = {
+        backgroundColor: '#333',
+        height: 67.5,
+        boxShadow: 'unset',
+        top: 3.5
+    };
 
     // play the audio
     const playSound = () => {
+        if(power){
+            const sound = document.getElementById(keyTrigger);
+            sound.currentTime = 0;
+            sound.play();
 
-        const sound = document.getElementById(keyTrigger);
-        sound.currentTime = 0;
-        sound.play();
-
-        // display the name of triggered drum pad
-        display(id); 
-
-        // change style of triggered drum pad    
-        setPadStyle(activateStyle)
+            // display the name of triggered drum pad
+            display(id);
+            // change style of triggered drum pad  
+            setPadStyle(activateStyle)
+            
+        } else{
+            setPadStyle(powerOffstyle)
+        }
         setTimeout(() => setPadStyle(inActivateStyle), 100);
-
     }
 
     // onclick

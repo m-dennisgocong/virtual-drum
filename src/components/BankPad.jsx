@@ -1,11 +1,12 @@
 import DrumPads from "./DrumPads";
 import './DrumPads.scss'
 
-const BankPad = ({currentBank, display}) => {
+const BankPad = ({currentBank, display, power}) => {
     
     const drumPads = currentBank.map((element) => {
         return(
             <DrumPads
+                power={power}
                 key={element.id}
                 display={display} 
                 keyCode={element.keyCode}
