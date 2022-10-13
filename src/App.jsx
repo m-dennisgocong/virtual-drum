@@ -7,7 +7,6 @@ import {bankOne, bankTwo} from './data/Bank.js';
 
 const App = () => {
 
-  const [currentBank, setCurrentBank] = useState(bankOne);
   const [displayString, setdisplayString] = useState(" ")
   const [volumeValue, setVolumeValue] = useState(0.5);
   const [power, setPower] = useState(true);
