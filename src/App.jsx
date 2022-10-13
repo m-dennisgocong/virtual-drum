@@ -22,12 +22,15 @@ const App = () => {
 
   const adjustVolume = (event) => {
     setVolumeValue(event.target.value);
-    display("volume : "+ Math.round(event.target.value * 100));
-    setTimeout(() => clearDisplay(), 1000); 
+    if(power){
+      display("volume : "+ Math.round(event.target.value * 100));
+      setTimeout(() => clearDisplay(), 1000); 
+    }
   }
   
   const handlePower = () => {
     setPower(!power);
+    clearDisplay();
   }
   
   const handleBankChange = () => {
