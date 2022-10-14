@@ -48,25 +48,31 @@ const App = () => {
     sound.volume = volumeValue;
   });
 
+  // remove light effect style for drum-machine container 
+  const powerOffstyle = {
+    border: "1px solid grey",
+    boxShadow: "unset"
+  }
+
   return(
-    <main id="drum-machine" className="drum-container">
+    <main style={!power ? powerOffstyle : null} id="drum-machine" className="drum-container">
       <div className="display-container">
         <p id="display">{displayString}</p>
       </div>
       <BankPad currentBank={!bank ? bankOne : bankTwo} display={display} power={power}/>
       {/* <ControlContainer /> */}
       <div className="volume-container">
-        <p>volume: </p>
+        <p style={!power ? {color: 'grey'}: null}>volume: </p>
         <input type="range" name="volume" min="0" max="1" step="0.01" value={volumeValue} onChange={adjustVolume}/>
       </div>
       <div className="switch">
         <div className="power-container">
           <input checked={power} type="checkbox" id="power" className='toggle' onChange={handlePower}/>
-          <label htmlFor="power">Power</label>
+          <label htmlFor="power" style={!power ? {color: 'grey'}: null} >Power</label>
         </div>
         <div className="bank-container">
           <input checked={bank} type="checkbox" id="bank" className='toggle' onChange={handleBankChange}/>
-          <label htmlFor="bank">Bank</label>
+          <label htmlFor="bank" style={!power ? {color: 'grey'}: null} >Bank</label>
         </div>
       </div>
     </main>
