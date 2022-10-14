@@ -81,7 +81,7 @@ $drum-machine-bg-color: rgb(68, 68, 68);
         top: -1px;
         height: 1.4em;
         width: 2.8em; 
-        background-color: rgb(146, 146, 146);
+        background-color: #333;
         border-radius: 1em;
         cursor:pointer;
       }
@@ -93,14 +93,14 @@ $drum-machine-bg-color: rgb(68, 68, 68);
         left: 1.5px;
         height: 1.3em;
         width: 1.3em; 
-        background-color: rgb(110, 36, 36);
+        background-color: rgb(245, 245, 245);
         border-radius: 1em;
         cursor:pointer;
       }
 
       input[type="checkbox"].toggle:checked + label::after{
         transform: translateX(100%);
-        background-color: green;
+        background-color: rgb(245, 245, 245);
         
       }
 
