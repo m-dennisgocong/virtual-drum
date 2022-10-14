@@ -12,15 +12,15 @@ $drum-machine-bg-color: rgb(68, 68, 68);
   background-color: $main-bg-color;
 }
 #drum-machine{
-  height: 90vh;
-  width: 90vw;
+  height: 80vh;
+  width: 85vw;
   display: flex;
   flex-direction: column;
   place-items: center;
   justify-content: center;
   gap: 2em;
   background-color: $drum-machine-bg-color;
-  border-radius: 0.5em;
+  border-radius: 0.6em;
   border: 0.1px solid rgb(255, 255, 255, 0.5);
   box-shadow: 0 0 10px rgb(255, 255, 255, 0.5), 0 0 15px rgb(0, 0, 255, 0.5);
   .display-container{
