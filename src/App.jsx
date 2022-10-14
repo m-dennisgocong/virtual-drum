@@ -32,9 +32,14 @@ const App = () => {
     setPower(!power);
     clearDisplay();
   }
-  
-  const handleBankChange = () => {
+  const kitType = (bank) => {
+    return bank ? display("Heater Kit") : display("Smooth Piano Kit"); 
+  }
+  const handleBankChange = () => {  
     setBank(!bank);
+    if(power){
+      kitType(bank);
+    }  
   }
 
   // adjust audio volume
