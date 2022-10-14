@@ -4,7 +4,6 @@ $drum-machine-bg-color: rgb(68, 68, 68);
 #root{
   height: 100vh;
   margin: 0 auto;
-  max-width: 1280px;
   min-width: 380px;
   width: 100%;
   display: grid;
@@ -22,7 +21,8 @@ $drum-machine-bg-color: rgb(68, 68, 68);
   gap: 2em;
   background-color: $drum-machine-bg-color;
   border-radius: 0.5em;
-  border: 0.1px solid white;
+  border: 0.1px solid rgb(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgb(255, 255, 255, 0.5), 0 0 15px rgb(0, 0, 255, 0.5);
   .display-container{
     
     height: 30px;
@@ -45,7 +45,7 @@ $drum-machine-bg-color: rgb(68, 68, 68);
     border-radius: 0.5em;
     text-align: center;
     background-color: #333;
-    color: white;
+    color: hwb(0 100% 0%);
     input[type="range"]{
       width: 100%;
     }
@@ -72,7 +72,7 @@ $drum-machine-bg-color: rgb(68, 68, 68);
         justify-content: center;
         gap: 0.3em;
         cursor:pointer;
-        color: white;
+        color: rgb(255, 255, 255);
       }
 
       input[type="checkbox"].toggle + label::before{
@@ -101,8 +101,49 @@ $drum-machine-bg-color: rgb(68, 68, 68);
       input[type="checkbox"].toggle:checked + label::after{
         transform: translateX(100%);
         background-color: green;
+        
       }
 
     }
   }
 } 
+
+@media (min-width: 900px) {
+  
+  #drum-machine{
+    display: grid;
+    grid-template-columns: repeat(4fr, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 4em;
+    height: 65vh;
+    width: 80vw;
+    
+    .pad-bank{
+      grid-row: span 2;
+      grid-row: 3/5;
+      grid-column: 1/2;
+    }
+    .display-container{
+      grid-column: 2 / 3;
+      grid-row: 2 / 4;
+    }
+    .volume-container{
+      grid-column: 2 / 3;
+      grid-row: 3 / 5;
+    }
+    .switch{
+      grid-column: 2 / 3;
+      grid-row: 4 / 6;
+    }
+
+  }
+  
+}
+
+@media (min-width: 1200px) {
+  #drum-machine{
+    height: 65vh;
+    width: 60vw;
+  }
+
+}
