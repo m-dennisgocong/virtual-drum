@@ -1,5 +1,7 @@
 # virtual-drum
 
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://online-virtual-drum.netlify.app/) [![Current Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/m-dennisgocong/virtual-drum)
+
 Online virtual drum pad, created with React
 
 Live Demo: https://online-virtual-drum.netlify.app/
