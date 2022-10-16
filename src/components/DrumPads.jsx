@@ -45,9 +45,8 @@ const DrumPads = ({keyCode,keyTrigger,id,audioUrl, display, power}) => {
     const playSound = () => {
         if(power){
             const sound = document.getElementById(keyTrigger);
-            sound.currentTime = 0;
-           
             setTimeout(() => {
+                sound.currentTime = 0;
                 sound.play();
             }, 200);
 
