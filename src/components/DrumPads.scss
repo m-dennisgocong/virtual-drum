@@ -7,8 +7,7 @@ $padHeight: 70px;
     place-items: center;
     gap: .8rem;
     grid-template-columns: repeat(3, 1fr);
-    // width: $padWidth * 3 + 32;
-    // height: $padHeight * 3 + 32;
+    grid-template-rows: repeat(3, 1fr);
     margin: 0;
 
     .drum-pad{
