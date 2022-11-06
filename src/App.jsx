@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './App.scss';
 import BankPad from './components/BankPad';
-// import ControlContainer from './components/ControlContainer';
 import {bankOne, bankTwo} from './data/Bank.js';
 
 
@@ -60,7 +59,6 @@ const App = () => {
         <p id="display">{displayString}</p>
       </div>
       <BankPad currentBank={!bank ? bankOne : bankTwo} display={display} power={power}/>
-      {/* <ControlContainer /> */}
       <div className="volume-container">
         <p style={!power ? {color: 'grey'}: null}>volume: </p>
         <input type="range" name="volume" min="0" max="1" step="0.01" value={volumeValue} onChange={adjustVolume}/>
