@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.scss';
 import BankPad from './components/BankPad';
 import {bankOne, bankTwo} from './data/Bank.js';
-
+import githubLogo from './icon/github-logo.svg';
 
 const App = () => {
 
@@ -72,6 +72,12 @@ const App = () => {
           <input checked={bank} type="checkbox" id="bank" className='toggle' onChange={handleBankChange}/>
           <label htmlFor="bank" style={!power ? {color: 'grey'}: null} >Bank</label>
         </div>
+      </div>
+      <div id="footer">
+        <a href="https://github.com/m-dennisgocong/virtual-drum" target='_blank'>
+          <img src={githubLogo} alt="" />
+          Dennis Goc-ong 
+        </a>
       </div>
     </main>
   );
