@@ -75,8 +75,7 @@ const App = () => {
       </div>
       <div id="footer">
         <a href="https://github.com/m-dennisgocong/virtual-drum" target='_blank'>
-          <img src={githubLogo} alt="" />
-          Dennis Goc-ong 
+          <img src={githubLogo} alt="" /> Dennis Goc-ong 
         </a>
       </div>
     </main>
